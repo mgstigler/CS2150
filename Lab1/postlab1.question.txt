@@ -1,0 +1,10 @@
+//Maddie Stigler
+//mgs4ff
+//9/5/14
+//postlab1.question.txt
+
+Other than being able to include the method bodies in the .h file, what is the difference between a template class and a normal class?
+
+Also, in relation to that, why does it compile more successfully when the method body is in the .h file?
+
+Since all methods of the List class are available to both a pointer and non-pointer list, in what scenario would it be preferable to use a pointer vs a non-pointer?  What exactly is the difference and what are the limitations to the different identifiers?
