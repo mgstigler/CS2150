@@ -1,0 +1,36 @@
+C00E	000		jmp	start	skip around the variables
+0000	001	i	dw	0	int i
+0000	002	s	dw	0	int s
+0008	003	a	dw	0	int a[]
+0003	004	n	dw	3	size n of array
+0001	005	one	dw	1	one
+3000	006	ldit	dw	3000	load
+0000	007	max	dw	0	max number
+0001	008	a[0]	dw	1	array at 0 = 1
+0002	009	a[1]	dw	2	array at 1 = 2
+0003	00A	a[2]	dw	3	array at 2 = 3
+0000	00B				leave space for changes
+0000	00C
+0000	00D
+3004	00E	start	load	n	load size of array
+6001	00F		sub	i	subtract i from the accumulator
+E021	010		jmpl	xit	if( i > size) xit
+D021	011		jmpe	xit	if( i = size) xit
+3006	012		load	ldit	form the instruction to load a[i]
+5003	013		add	a	add base value of a
+5001	014		add	i	add i to base
+4016	015		store	doit	plant instruction into program
+0000	016	doit	dw	0	
+4002	017		store	s	s = a[i]
+6007	018		sub 	max	subtract max from a[i]
+E01D	019		jmpl	endl	if max > a[i] go to endl
+D01D	01A		jmpe	endl	if max = a[i] go to endl
+3002	01B		load	s	loads s in accumulator
+4007	01C		store	max	max = accumulator
+3001	01D	endl	load 	i	loads i and ends the loop
+5005	01E		add	1	adds 1 to i 
+4001	01F		store	i	stores i
+C00E	020		jmp	start	jumps to loop again
+3007	021	xit	load	max	loads max
+1800	022		printH	max	prints max
+0000	023		halt		halts program

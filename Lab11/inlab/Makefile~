@@ -1,0 +1,23 @@
+#Maddie Stigler
+#mgs4ff
+#12/2/14
+#Makefile
+
+CXX	= clang++
+
+CXXFLAGS		= -Wall -g
+
+OFILES	= traveling.cpp middleearth.cpp
+
+.SUFFIXES: .o .cpp
+
+main:	$(OFILES)
+	$(CXX) $(OFILES)
+	doxygen
+
+clean:
+	/bin/rm -f *.o *~
+	/bin/rm -f *.out
+
+traveling.o: traveling.cpp middleearth.cpp
+middleearth.o: middleearth.cpp middleearth.h

@@ -1,0 +1,22 @@
+C005	000		jmp 	jmp start
+0015	001		dw	size
+0001	002		dw	count
+0001	003		dw	one
+0000	004		dw	temp
+3000	005		load	load into accumulator
+4004	006	start	store	store temp	
+4008	007		store 	store doit
+0000	008	doit	dw	
+1800	009		printH
+3002	00A		load 	load count
+5003	00B		add 	count ++
+4002	00C		store 	store count
+6001	00D		sub	size, cont. while(count-size > 0)
+D013	00E		jmpe	jump to end	
+E013	00F		jmpl	jump to end
+3004	010		load 	load temp
+5003	011		add 	add 1
+C006	012		jmp 	jump to start	
+3003	013	end	load one	
+4002	014		store 	store count
+1800	015		printH	

@@ -1,0 +1,68 @@
+C015	000		jmp	start	skip around variables
+0005	001	max	dw	5	max = 5
+0003	002	a[]	dw	3	array a[]
+0001	003	a[0]	dw	1	a[0] = 1
+0002	004	a[1]	dw	2	a[1] = 2
+0003	005	a[2]	dw	3	a[2] = 3
+0004	006	a[3]	dw	4	a[3] = 4
+0005	007	a[4]	dw	5	a[4] = 5
+0000	008	i	dw	0	set i = 0
+0004	009	j	dw	4	j = 4
+0001	00A	one	dw	1	one = 1
+0000	00B	temp	dw	0	temp = 0
+0000	00C	prev	dw	0	holds prev val
+3000	00D	ldit	dw	3000	load helper
+4000	00E	sdit	dw	4000	store helper
+0000	00F	curr	dw	0	current = 0
+0000	010				leave space for changes
+0000	011
+0000	012
+0000	013
+0000	014
+3001	015	start	load	max	loads max into acc (while i < max)
+6008	016		sub	i	max - i
+E043	017		jmpl	xit	halt if max-i < 0
+D043	018		jmpe	xit	halt if max-i < 0
+3009	019	loop	load	j	load j into accumulator, while(j>i)
+6008	01A		sub	i	j - i, continue if j-i>=0
+E03C	01B		jmpl	xit2	increment i and return to start
+D03C	01C		jmpe	xit2	increment i and return to start
+300D	01D		load	ldit	form instruction to load a[j]
+5002	01E		add	a[]	
+5009	01F		add	j	a[j]
+4021	020		store	doit	store instruction
+0000	021	doit	dw	0	stores current
+400F	022		store	curr	a[j] = current
+600A	023		sub	1	subtract 1: a[j-1]
+4025	024		store	doit2	store prev instruction
+0000	025	doit2	dw	0	store prev
+400C	026		store	prev	stores previous
+300F	027		load	curr	loads current 
+600C	028		sub 	prev	subtract prev from current
+E02B	029		jmpl	doit3	jmp to endl if less than zero
+C038	02A		jmp	endl	jump to the end of the loop
+300E	02B	doit3	load	sdit	a[j] = prev
+5002	02C		add	a[]	
+5009	02D		add	j	a[j]
+4030	02E		store	doit4	
+300C	02F		load	prev	loads previous val 
+0000	030	doit4	dw	0
+300E	031		load	sdit	a[j-1] = curr
+5002	032		add	a[]
+5009	033		add	j	a[j]
+600A	034		sub 	one	j--
+4037	035		store	doit5	plant instruction
+300F	036		load	curr	loads current value
+0000	037	doit5	dw	0	
+3009	038	endl	load	j	decrement j
+600A	039		sub 	one	j--
+4009	03A		store	j	stores j value
+C019	03B		jmp 	loop	jump back to the beginning of the loop
+3008	03C	xit2	load	i	increment i
+500A	03D		add 	one	i++
+4008	03E		store	i	stores i value
+3001	03F		load 	max	loads the max
+600A	040		sub 	one 	max-1 = j, reset value
+4009	041		store	j	stores j value
+C015	042		jmp 	start	go back to start
+0000	043	xit	halt

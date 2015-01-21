@@ -1,0 +1,62 @@
+/*Maddie Stigler
+ *mgs4ff
+ *9/22/14
+ *prelab4.cpp
+ */
+
+#include <string>
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+void sizeOfTest() {
+  cout << "Size of int: " << sizeof(int)<< endl;
+  cout << "Size of unsigned int: " << sizeof(unsigned int) << endl;
+  cout << "Size of float: " << sizeof(float) << endl;
+  cout << "Size of double: " << sizeof(double) << endl;
+  cout << "Size of char: " << sizeof(char) << endl;
+  cout << "Size of bool: " << sizeof(bool) << endl;
+  cout << "Size of int*: " << sizeof(int*) << endl;
+  cout << "Size of char*: " << sizeof(char*) << endl;
+  cout << "Size of double*: " << sizeof(double*) << endl;
+}
+
+void outputBinary(unsigned int x) {
+  string binary = "0";
+  if(x == 0) {
+    binary = "00000000000000000000000000000000";
+    cout << binary << endl;
+    return;
+  }
+  else{
+    for(int i = 32; i > 0; i--) {
+      if(x & (1 << i)){
+	binary += "1";
+      }
+      else binary += "0";
+    }
+  }
+  cout << "=> " << binary << endl;
+}
+
+void overflow() {
+  unsigned int x = 4294967295;
+  cout << x << endl;
+  x += 1;
+  cout << x << endl;
+}
+
+int main() {
+  string value;
+  cout << "Please enter a single int value: " << endl;
+  cin >> value;
+  int x = atoi(value.c_str());
+
+  sizeOfTest();
+  outputBinary(x);
+  overflow();
+}
+
+
+

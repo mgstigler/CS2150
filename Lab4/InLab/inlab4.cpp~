@@ -1,0 +1,37 @@
+/*Maddie Stigler
+ *mgs4ff
+ *9/23/14
+ *inlab4.cpp
+ */
+
+#include <iostream>
+#include <string>
+#include <cstdlib>
+
+int main {
+  bool a = false;
+  char b = '0';
+  int c = 0;
+  double d = 0.0
+  int* e = NULL;
+  char* f = NULL;
+  double* g = NULL;
+  cout<< a << endl;
+  cout<< b << endl;
+  cout<< c << endl;
+  cout<< d << endl;
+  cout<< e << endl;
+  cout<< f << endl;
+  cout<< g << endl;
+
+
+
+
+
+
+
+  int IntArray[10];
+  char CharArray[10];
+
+  return 1;
+}

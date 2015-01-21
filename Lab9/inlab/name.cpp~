@@ -1,0 +1,22 @@
+/*Maddie Stigler
+ *mgs4ff
+ *11/18/14
+ *person.cpp
+ */
+
+#include <iostream>
+using namespace std;
+
+class Name {
+public:
+  Name(void) : myName("") { }
+  ~Name(void) { }
+  void setName(string theName) {
+    myName = theName;
+  }
+  void print(void) {
+    cout << myName << endl;
+  }
+private:
+  string myName;
+};

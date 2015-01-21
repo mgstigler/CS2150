@@ -1,0 +1,48 @@
+/*Maddie Stigler
+ *mgs4ff
+ *11/4/14
+ *inlab8.cpp
+ */
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+
+//pass by value
+
+
+//pass by reference
+void swap(int &x, int &y) {
+  int temp = x;
+  x = y;
+  y = temp;
+}
+
+//pass by pointer
+void swap(int* x, int*y) {
+  int temp = *x;
+  *x = *y;
+  *y = temp;
+
+//pass by array
+void array(int A[]) {
+  A[0] = 5;
+}
+
+//main
+int main() {
+  int A[10];
+  A[0] = 2;
+  int x = 10;
+  int y = 20;
+  //call reference function
+  swap(&x, &y);
+  //call pointer function
+  swap(x, y);
+  //call array function
+  array(A);
+
+  return 0;
+}

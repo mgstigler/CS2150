@@ -1,0 +1,16 @@
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+union{
+  float f;
+  int i;
+  double *p;
+}bar;
+
+int main() {
+
+  cout<<sizeof(bar);
+  return 0;
+}

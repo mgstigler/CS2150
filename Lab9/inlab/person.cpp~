@@ -1,0 +1,46 @@
+/*Maddie Stigler
+ *mgs4ff
+ *11/18/14
+ *person.cpp
+ */
+
+#include <iostream>
+using namespace std;
+
+class Person {
+public:
+  Name(void) : myName("") { }
+  ~Name(void) { }
+  void setName(string theName) {
+    myName = theName;
+  }
+  void print(void) {
+    cout << myName << endl;
+  }
+private:
+  string myName;
+};
+
+class Student: public Person {
+public:
+  Id(void) {
+    myId = "";
+  }
+  ~Id(void) { }
+  void setId(string theId) {
+    myId = theId;
+  }
+  void print(void) {
+    Name::print();
+    cout << myId << endl;
+  }
+private:
+  string myId;
+};
+
+int main(void) {
+  Student spongebob;
+  spongebob.setName("Spongebob");
+  spongebob.setId("sb9kp");
+  spongebob.print();
+}

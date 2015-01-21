@@ -1,0 +1,52 @@
+Maddie Stigler
+mgs4ff
+9/22/14
+floatingpoint.doc
+
+My floating point number is: -4.40625
+Convert it to little endian binary and express it in hex:
+Binary:
+1. Sign: 1
+2. Exponent: 
+   	     4.40625 / 2^2 = 1.1015625
+	     2 + 127 = 129
+	     Divide by 2:
+	     	    129/2	1
+		    64/2	0
+		    32/2	0
+		    16/2	0
+		    8/2		0
+		    4/2		0
+		    2/2		0
+		    1/2		1
+		    Binary: 10000001
+   	     
+3. Mantissa:
+	    1.1015625 - 1 = 0.1015625
+	    Subtract powers of 1/2:
+	    	     .1015625 - .5 = 0
+		     .1015625 - .25 = 0
+		     .1015625 - .125 = 0
+		     .1015625 - .0625 = 1
+		     .0390625 - .03125 = 1
+		     .0078125 - .015625 = 0
+		     .0078125 - .0078125 = 1
+		     Binary: 00011010000000000000000
+
+Total Binary: 1100 0000 1000 1101 0000 0000 0000 0000
+Hexadecimal: 0xC08D0000
+	     Little Endian: 0x00008dc0
+
+My other floating point number is: 0x0000a03f
+Convert it to (32 bit) floating point number:
+	Big Endian: 0x3fa00000
+	Binary: 0011 1111 1010 0000 0000 0000 0000 0000
+		Sign: 0
+		Exponent:01111111
+			0111 1111 = 0x7f = 127
+			127 - 127 = 0
+		 
+		Mantissa:01000000000000000000000
+			(1/4)^1 = .25
+			1.25
+Total Decimal: 1.25*2^0 = 1.25
